@@ -24,9 +24,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1AD192682E370D3300F0787D /* Mirrorly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mirrorly.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1AD192752E370D3400F0787D /* MirrorlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MirrorlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1AD1927F2E370D3400F0787D /* MirrorlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MirrorlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AD192682E370D3300F0787D /* Mirrorly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = Mirrorly.app; path = "/Users/sevdeozoglu/Desktop/Mirrorly/build/Debug-iphoneos/Mirrorly.app"; sourceTree = "<absolute>"; };
+		1AD192752E370D3400F0787D /* MirrorlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = MirrorlyTests.xctest; path = "/Users/sevdeozoglu/Desktop/Mirrorly/build/Debug-iphoneos/Mirrorly.app/PlugIns/MirrorlyTests.xctest"; sourceTree = "<absolute>"; };
+		1AD1927F2E370D3400F0787D /* MirrorlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = MirrorlyUITests.xctest; path = "/Users/sevdeozoglu/Desktop/Mirrorly/build/Debug-iphoneos/MirrorlyUITests-Runner.app/PlugIns/MirrorlyUITests.xctest"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,21 +75,10 @@
 		1AD1925F2E370D3300F0787D = {
 			isa = PBXGroup;
 			children = (
-				1AD1926A2E370D3300F0787D /* Mirrorly */,
 				1AD192782E370D3400F0787D /* MirrorlyTests */,
 				1AD192822E370D3400F0787D /* MirrorlyUITests */,
-				1AD192692E370D3300F0787D /* Products */,
+				1AD1926A2E370D3300F0787D /* Mirrorly */,
 			);
-			sourceTree = "<group>";
-		};
-		1AD192692E370D3300F0787D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				1AD192682E370D3300F0787D /* Mirrorly.app */,
-				1AD192752E370D3400F0787D /* MirrorlyTests.xctest */,
-				1AD1927F2E370D3400F0787D /* MirrorlyUITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,7 +185,7 @@
 			mainGroup = 1AD1925F2E370D3300F0787D;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 1AD192692E370D3300F0787D /* Products */;
+			productRefGroup = 1AD1925F2E370D3300F0787D;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
