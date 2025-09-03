@@ -15,9 +15,9 @@ struct LoginView: View {
                 .fontWeight(.bold)
             
             Button(action: {
-            // Google login işlemi burada
+      
             }) {
-                Text("Google ile Giriş")
+                Text("Sign in with Google")
                     .frame(maxWidth: .infinity)
                     .padding()
                     .background(Color.blue)
@@ -26,16 +26,16 @@ struct LoginView: View {
             }
             
             Button(action: {
-            // Apple login işlemi burada
+ 
             }) {
-                Text("Apple ile Giriş")
+                Text("Sign in with Apple")
                 .frame(maxWidth: .infinity)
                 .padding()
                 .background(Color.black)
                 .foregroundColor(.white)
                 .cornerRadius(8)
             }
-            NavigationLink("Devam Et", destination: InstagramConnectView())
+            NavigationLink("Continue", destination: InstagramConnectView())
                            .padding(.top, 40)
         }
         .padding()

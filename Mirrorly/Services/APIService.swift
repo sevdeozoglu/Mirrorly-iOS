@@ -8,10 +8,10 @@
 import Foundation
 
 class APIService {
-    let baseURL = "http://localhost:3000" // backend URL buraya gelecek
+    let baseURL = "http://localhost:3000"
 
     func fetchAnalysis(for posts: [String], completion: @escaping (AnalysisResult?) -> Void) {
-        // Backend'e gönderilecek JSON
+ 
         let body: [String: Any] = ["posts": posts]
 
         guard let url = URL(string: "\(baseURL)/analyze") else { return }
@@ -22,14 +22,14 @@ class APIService {
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: body)
         } catch {
-            print("JSON hatası: \(error)")
+            print("JSON error: \(error)")
             completion(nil)
             return
         }
 
         URLSession.shared.dataTask(with: request) { data, _, error in
             if let error = error {
-                print("API hatası: \(error)")
+                print("API error: \(error)")
                 completion(nil)
                 return
             }
@@ -43,7 +43,7 @@ class APIService {
                 let result = try JSONDecoder().decode(AnalysisResult.self, from: data)
                 completion(result)
             } catch {
-                print("Decode hatası: \(error)")
+                print("Decode error: \(error)")
                 completion(nil)
             }
         }.resume()

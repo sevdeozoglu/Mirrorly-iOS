@@ -11,13 +11,13 @@ struct InstagramConnectView: View {
   
     var body: some View {
            VStack(spacing: 20) {
-               Text("Instagram Hesabını Bağla")
+               Text("Connect your Instagram account")
                    .font(.title2)
                
                Button(action: {
-                   // OAuth bağlantısı başlat
+                   
                }) {
-                   Text("Instagram ile Bağlan")
+                   Text("Connect with Instagram")
                        .frame(maxWidth: .infinity)
                        .padding()
                        .background(Color.purple)
@@ -25,7 +25,7 @@ struct InstagramConnectView: View {
                        .cornerRadius(8)
                }
                
-               NavigationLink("Bağlandıktan Sonra Devam", destination: AnalysisView())
+               NavigationLink("Continue after the connection", destination: AnalysisView())
                    .padding(.top, 40)
            }
            .padding()

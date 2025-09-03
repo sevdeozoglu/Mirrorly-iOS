@@ -9,16 +9,16 @@ import Foundation
 
 struct MockData {
     static let sampleAnalysis = AnalysisResult(
-        overallImpression: "Sen dışarıdan yaratıcı, enerjik ama biraz dağınık bir imaj veriyorsun.",
+        overallImpression: "From the outside, you give the impression of being creative, energetic but a bit scattered.",
         strengths: [
-            "Eğlenceli ve samimi dil kullanımı",
-            "Renkli ve dikkat çekici görseller"
+            "Fun and friendly use of language",
+            "Colorful and eye-catching visuals"
         ],
         weaknesses: [
-            "Caption'larda CTA eksik",
-            "Profil bio net değil"
+            "CTAs are missing from captions",
+            "Profile bios are unclear"
         ],
-        bioSuggestion: "🌟 Yaratıcı içerikler | 🎥 Moda & Lifestyle | 📍 NYC",
+        bioSuggestion: "Creative Contents | Fashion & Lifestyle | NYC",
         colorPalette: ["#FF6B81", "#F7C59F", "#6BCB77"]
     )
 }

@@ -8,77 +8,94 @@
 import SwiftUI
 
 struct AnalysisResultView: View {
-    let result : AnalysisResult
+    let result: AnalysisResult
     
+    @State private var showPostPicker = false
+    @State private var selectedPosts: [String] = []
+
     var body: some View {
         ScrollView {
-            VStack(spacing: 20) {
-                Text("AI Analiz Sonucu")
-                    .font(.largeTitle)
-                
-                Text("💡 Genel Algı:")
-                    .font(.title2)
-                Text(result.overallImpression)
-                    .multilineTextAlignment(.center)
-                    .padding()
+            VStack(spacing: Theme.spacing) {
 
-                Divider()
-
-                Text("✅ Güçlü Yönler")
-                    .font(.headline)
-                ForEach(result.strengths, id: \.self) { item in
-                    Text("• \(item)")
-                        .frame(maxWidth: .infinity, alignment: .leading)
+            
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("AI Analysis")
+                        .font(.titleXL)
+                        .foregroundColor(.textPrimary)
+                    Text("Overview & actionable suggestions")
+                        .foregroundColor(.textSecondary)
                 }
 
-                Divider()
-
-                Text("⚠️ Zayıf Yönler")
-                    .font(.headline)
-                ForEach(result.weaknesses, id: \.self) { item in
-                    Text("• \(item)")
-                        .frame(maxWidth: .infinity, alignment: .leading)
+             
+                Card("Overall Impression") {
+                    Text(result.overallImpression)
+                        .foregroundColor(.textPrimary)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
 
-                Divider()
-
-                Text("✨ Bio Önerisi")
-                    .font(.headline)
-                Text(result.bioSuggestion)
-                    .italic()
-                    .padding()
-
-                Divider()
-
-                Text("🎨 Renk Paleti")
-                    .font(.headline)
-                HStack {
-                    ForEach(result.colorPalette, id: \.self) { color in
-                        Rectangle()
-                            .fill(Color(hex: color))
-                            .frame(width: 50, height: 50)
-                            .cornerRadius(8)
+          
+                HStack(alignment: .top, spacing: Theme.spacing) {
+                    Card("Strengths") {
+                        VStack(alignment: .leading, spacing: 8) {
+                            ForEach(result.strengths, id: \.self) { s in
+                                TagPill(text: s, positive: true)
+                            }
+                        }
+                    }
+                    Card("Weaknesses") {
+                        VStack(alignment: .leading, spacing: 8) {
+                            ForEach(result.weaknesses, id: \.self) { w in
+                                TagPill(text: w, positive: false)
+                            }
+                        }
                     }
                 }
-            }
-            .padding()
-        }
-    }
-}
 
-// HEX rengini SwiftUI Color’a çevirmek için extension:
-extension Color {
-    init(hex: String) {
-        let scanner = Scanner(string: hex)
-        _ = scanner.scanString("#")
-        
-        var rgb: UInt64 = 0
-        scanner.scanHexInt64(&rgb)
-        
-        let r = Double((rgb >> 16) & 0xFF) / 255.0
-        let g = Double((rgb >> 8) & 0xFF) / 255.0
-        let b = Double(rgb & 0xFF) / 255.0
-        
-        self.init(red: r, green: g, blue: b)
-    }
-}
+           
+                Card("Bio Suggestion") {
+                    Text(result.bioSuggestion)
+                        .italic()
+                        .foregroundColor(.textPrimary)
+                }
+
+             
+                Card("Color Palette") {
+                    HStack(spacing: 12) {
+                        ForEach(result.colorPalette, id: \.self) { hex in
+                            Rectangle()
+                                .fill(Color(hex: hex))
+                                .frame(width: 56, height: 56)
+                                .cornerRadius(12)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .stroke(Color.accentBorder)
+                                )
+                        }
+                    }
+                }
+
+               
+                Button("Analyze Selected Posts") {
+                                    showPostPicker = true
+                                }
+                                .buttonStyle(PrimaryButtonStyle())
+                            }
+                            .padding(20)
+                        }
+                        .background(Color.white.ignoresSafeArea())
+
+              
+                        .sheet(isPresented: $showPostPicker) {
+                            NavigationStack {
+                                PostSelectionView { selected in
+                     
+                                    selectedPosts = selected
+                                 
+                                    print("Selected posts:", selected)
+                                }
+                                .navigationTitle("Post Selection")
+                                .navigationBarTitleDisplayMode(.inline)
+                            }
+                        }
+                    }
+                }

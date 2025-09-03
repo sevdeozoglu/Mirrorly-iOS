@@ -13,13 +13,14 @@ struct AnalysisView: View {
         var body: some View {
             VStack(spacing: 20) {
                 if viewModel.isLoading {
-                    ProgressView("Analiz Ediliyor...")
+                    ProgressView("Analyzing")
                 } else if let result = viewModel.result {
-                    NavigationLink("Sonuçları Gör", destination: AnalysisResultView(result: result))
+                    NavigationLink("See the result", destination: AnalysisResultView(result: result))
                 } else {
-                    Button("AI Analiz Başlat") {
-                        viewModel.analyze(posts: ["post1", "post2"]) // Gerçek veri sonra gelecek
+                    Button("Start Analysis") {
+                        viewModel.analyze(posts: ["post1", "post2"])
                     }
+                    .buttonStyle(PrimaryButtonStyle())
                     .padding()
                     .background(Color.blue)
                     .foregroundColor(.white)

@@ -10,16 +10,16 @@ import SwiftUI
 struct PostAnalysisDetailView: View {
     var body: some View {
         VStack(spacing: 20) {
-            Text("Post Analizi")
+            Text("Post Analysis")
                 .font(.largeTitle)
 
-            Text("📸 Görsel Analizi: Renkler tutarlı, kompozisyon iyi.")
+            Text("Visual Analysis: Colors are good, composition is good.")
                 .multilineTextAlignment(.center)
 
-            Text("📝 Caption Analizi: Dili samimi ama CTA yok.")
+            Text("Caption Analysis: Language is warm but there is not CTA.")
                 .multilineTextAlignment(.center)
 
-            Text("💡 Öneri: Caption sonuna soru ekle, etkileşimi artır.")
+            Text("Suggestion: Add a question in caption.")
                 .multilineTextAlignment(.center)
 
             Spacer()

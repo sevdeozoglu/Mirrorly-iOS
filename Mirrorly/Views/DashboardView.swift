@@ -14,9 +14,12 @@ struct DashboardView: View {
                 Text("Mirrorly Dashboard")
                     .font(.largeTitle)
 
-                NavigationLink("📊 Genel Analiz Sonucu", destination: AnalysisResultView(result: MockData.sampleAnalysis))
-                NavigationLink("🖼️ Post Bazlı Analiz", destination: PostSelectionView())
-                NavigationLink("🔗 3 Kelime Linki", destination: ThreeWordLinkView())
+                NavigationLink("General Analysis Result", destination: AnalysisResultView(result: MockData.sampleAnalysis))
+                NavigationLink("Post Based Analysis", destination: PostSelectionView{ selected in
+                    print("Selected posts:", selected)
+
+                })
+                NavigationLink("3 words Link", destination: ThreeWordLinkView())
 
                 Spacer()
             }

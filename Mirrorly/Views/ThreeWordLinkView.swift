@@ -10,11 +10,11 @@ import SwiftUI
 struct ThreeWordLinkView: View {
     var body: some View {
         VStack(spacing: 20) {
-            Text("3 Kelimeyle Beni Anlat")
+            Text("Describe me in 3 words")
                 .font(.title)
 
-            Button("Link Oluştur") {
-                // Burada paylaşılacak link oluşturulacak
+            Button("Create a link") {
+                
             }
             .padding()
             .background(Color.blue)
